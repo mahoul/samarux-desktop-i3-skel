@@ -1,6 +1,6 @@
 Name:           samarux-desktop-i3-skel
 Version:        0.1
-Release:        26
+Release:        27
 Summary:        samarux-desktop-i3 skeleton files for i3, polybar et al
 License:        GPL
 Source: 	%{name}-%{version}.tar.gz
@@ -17,8 +17,9 @@ from the awesome Regolith project (https://regolith-linux.org/)
 
 
 %prep
-[ -d %{name} ] && rm -Rfv %{name}
-[ -d %{_topdir}/SOURCES ] && rsync -avP --exclude '.git' --delete %{_topdir}/SOURCES/ .
+#[ -d %{name} ] && rm -Rfv %{name}
+#[ -d %{_topdir}/SOURCES ] && rsync -avP --exclude '.git' --delete %{_topdir}/SOURCES/ .
+%autosetup
 
 %install
 %{__install} -D -m644 etc/skel/.config/i3/config %{buildroot}/etc/skel/.config/i3/config
@@ -56,6 +57,9 @@ from the awesome Regolith project (https://regolith-linux.org/)
 /etc/skel/.config/autostart/volumeicon.desktop
 
 %changelog
+* Sun Apr 11 2021 Enrique Gil <mahoul@gmail.com> - 0.1-27
+- Replaced prep section with autosetup
+
 * Sun Apr 11 2021 Enrique Gil (mahoul@gmail.com) - 0.1-26
 - Renamed pkg to samarux-desktop-i3-skel
 
