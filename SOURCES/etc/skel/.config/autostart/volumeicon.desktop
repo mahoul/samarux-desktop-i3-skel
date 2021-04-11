@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Volume Icon
+Exec=volumeicon
+TryExec=volumeicon
+Icon=multimedia-volume-control
+Type=Application
+Terminal=false
+StartupNotify=false
+Hidden=true
+
