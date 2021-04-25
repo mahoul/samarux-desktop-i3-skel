@@ -1,6 +1,6 @@
 Name:           samarux-desktop-i3-skel
 Version:        0.1
-Release:        27
+Release:        28
 Summary:        samarux-desktop-i3 skeleton files for i3, polybar et al
 License:        GPL
 Source: 	%{name}-%{version}.tar.gz
@@ -22,8 +22,11 @@ from the awesome Regolith project (https://regolith-linux.org/)
 %autosetup
 
 %install
-%{__install} -D -m644 etc/skel/.config/i3/config %{buildroot}/etc/skel/.config/i3/config
+%{__install} -D -m644 etc/skel/.config/autostart/volumeicon.desktop		 %{buildroot}/etc/skel/.config/autostart/volumeicon.desktop
 %{__install} -D -m644 etc/skel/.config/dunst/dunstrc %{buildroot}/etc/skel/.config/dunst/dunstrc
+%{__install} -D -m644 etc/skel/.config/i3/config %{buildroot}/etc/skel/.config/i3/config
+%{__install} -D -m644 etc/skel/.config/picom/picom.conf		 %{buildroot}/etc/skel/.config/picom/picom.conf
+%{__install} -D -m644 etc/skel/.config/polybar/config		 %{buildroot}/etc/skel/.config/polybar/config
 %{__install} -D -m644 etc/skel/.config/rofi/Adapta-Nokto.rasi %{buildroot}/etc/skel/.config/rofi/Adapta-Nokto.rasi
 %{__install} -D -m644 etc/skel/.config/rofi/Pop-Dark.rasi %{buildroot}/etc/skel/.config/rofi/Pop-Dark.rasi
 %{__install} -D -m644 etc/skel/.config/rofi/clean.rasi %{buildroot}/etc/skel/.config/rofi/clean.rasi
@@ -33,16 +36,17 @@ from the awesome Regolith project (https://regolith-linux.org/)
 %{__install} -D -m644 etc/skel/.config/rofi/gruvbox-dark.rasi %{buildroot}/etc/skel/.config/rofi/gruvbox-dark.rasi
 %{__install} -D -m644 etc/skel/.config/rofi/powermenu.rasi %{buildroot}/etc/skel/.config/rofi/powermenu.rasi
 %{__install} -D -m644 etc/skel/.config/rofi/rofi.rasi %{buildroot}/etc/skel/.config/rofi/rofi.rasi
-%{__install} -D -m644 etc/skel/.config/picom/picom.conf		 %{buildroot}/etc/skel/.config/picom/picom.conf
-%{__install} -D -m644 etc/skel/.config/polybar/config		 %{buildroot}/etc/skel/.config/polybar/config
-%{__install} -D -m644 etc/skel/.config/autostart/volumeicon.desktop		 %{buildroot}/etc/skel/.config/autostart/volumeicon.desktop
+%{__install} -D -m644 etc/skel/.samarux_configured	%{buildroot}/etc/skel/.samarux_configured
 
 %clean
 
 %files
 %defattr(-, root, root)
-/etc/skel/.config/i3/config
+/etc/skel/.config/autostart/volumeicon.desktop
 /etc/skel/.config/dunst/dunstrc
+/etc/skel/.config/i3/config
+/etc/skel/.config/picom/picom.conf
+/etc/skel/.config/polybar/config
 /etc/skel/.config/rofi/Adapta-Nokto.rasi
 /etc/skel/.config/rofi/Pop-Dark.rasi
 /etc/skel/.config/rofi/clean.rasi
@@ -52,11 +56,12 @@ from the awesome Regolith project (https://regolith-linux.org/)
 /etc/skel/.config/rofi/gruvbox-dark.rasi
 /etc/skel/.config/rofi/powermenu.rasi
 /etc/skel/.config/rofi/rofi.rasi
-/etc/skel/.config/picom/picom.conf
-/etc/skel/.config/polybar/config
-/etc/skel/.config/autostart/volumeicon.desktop
+/etc/skel/.samarux_configured
 
 %changelog
+* Sun Apr 25 2021 Enrique Gil <mahoul@gmail.com> - 0.1-28
+- Added flag file .samarux_configured to skel dir
+
 * Sun Apr 11 2021 Enrique Gil <mahoul@gmail.com> - 0.1-27
 - Replaced prep section with autosetup
 
